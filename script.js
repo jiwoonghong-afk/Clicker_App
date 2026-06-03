@@ -174,11 +174,19 @@ function playClickSound() {
   const config = modeConfig[currentMode];
   const now = audioContext.currentTime;
   const master = audioContext.createGain();
+  const limiter = audioContext.createDynamicsCompressor();
+
+  limiter.threshold.setValueAtTime(-10, now);
+  limiter.knee.setValueAtTime(8, now);
+  limiter.ratio.setValueAtTime(8, now);
+  limiter.attack.setValueAtTime(0.002, now);
+  limiter.release.setValueAtTime(0.045, now);
 
   master.gain.setValueAtTime(0.0001, now);
-  master.gain.exponentialRampToValueAtTime(0.18, now + 0.005);
+  master.gain.exponentialRampToValueAtTime(0.48, now + 0.004);
   master.gain.exponentialRampToValueAtTime(0.0001, now + config.duration);
-  master.connect(audioContext.destination);
+  master.connect(limiter);
+  limiter.connect(audioContext.destination);
 
   config.frequencies.forEach((frequency, index) => {
     const oscillator = audioContext.createOscillator();
@@ -188,7 +196,7 @@ function playClickSound() {
     oscillator.frequency.setValueAtTime(frequency, now);
     oscillator.frequency.exponentialRampToValueAtTime(frequency * 0.92, now + config.duration);
 
-    gain.gain.setValueAtTime(index === 0 ? 0.16 : 0.08, now);
+    gain.gain.setValueAtTime(index === 0 ? 0.26 : 0.13, now);
     gain.gain.exponentialRampToValueAtTime(0.0001, now + config.duration);
 
     oscillator.connect(gain);
@@ -209,7 +217,7 @@ function playClickSound() {
   const noise = audioContext.createBufferSource();
   const noiseGain = audioContext.createGain();
   noise.buffer = buffer;
-  noiseGain.gain.setValueAtTime(0.05, now);
+  noiseGain.gain.setValueAtTime(0.09, now);
   noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + config.duration);
   noise.connect(noiseGain);
   noiseGain.connect(master);
