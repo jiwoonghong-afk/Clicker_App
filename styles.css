@@ -526,70 +526,6 @@ button {
   right: 13%;
 }
 
-.keycap.is-cat-soft {
-  --keycap-top: #fff3ef;
-  --keycap-side: #eccfc5;
-  --keycap-rim: #d2b1a3;
-}
-
-.keycap.is-cat-soft .keycap-sub {
-  color: rgba(136, 91, 86, 0.72);
-}
-
-.keycap.is-cat-mid {
-  --keycap-top: #fff1df;
-  --keycap-side: #ebcaad;
-  --keycap-rim: #cfa88a;
-}
-
-.keycap.is-cat-mid .ear {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.keycap.is-cat-mid .eye,
-.keycap.is-cat-mid .nose {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.keycap.is-cat-full {
-  --keycap-top: #ffe8d2;
-  --keycap-side: #ddb591;
-  --keycap-rim: #b98b63;
-  --keycap-accent: #67452d;
-}
-
-.keycap.is-cat-full .ear,
-.keycap.is-cat-full .eye,
-.keycap.is-cat-full .nose,
-.keycap.is-cat-full .whiskers {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.keycap.is-cat-artisan {
-  --keycap-top: #fff2d6;
-  --keycap-side: #efc28e;
-  --keycap-rim: #c88d55;
-  --keycap-accent: #6d3f1a;
-  box-shadow:
-    inset 0 0 0 0.18rem var(--keycap-rim),
-    inset 0 2px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -10px 0 rgba(159, 96, 43, 0.18),
-    0 14px 0 rgba(143, 92, 46, 0.38),
-    0 22px 22px rgba(0, 0, 0, 0.22),
-    0 0 20px rgba(255, 184, 89, 0.22);
-}
-
-.keycap.is-cat-artisan .ear,
-.keycap.is-cat-artisan .eye,
-.keycap.is-cat-artisan .nose,
-.keycap.is-cat-artisan .whiskers {
-  opacity: 1;
-  transform: scale(1.02);
-}
-
 .burst-layer {
   position: absolute;
   inset: 0;
@@ -1420,33 +1356,28 @@ kbd {
   letter-spacing: 0.12em;
 }
 
-.keycap.is-dojjonku-soft,
-.keycap.is-cat-soft {
+.keycap.is-dojjonku-soft {
   --keycap-top: #fff4fb;
   --keycap-side: #f5b8d3;
   --keycap-rim: #d3749e;
 }
 
-.keycap.is-dojjonku-mid,
-.keycap.is-cat-mid {
+.keycap.is-dojjonku-mid {
   --keycap-top: #fff0c9;
   --keycap-side: #ffaed2;
   --keycap-rim: #e176a6;
   filter: saturate(1.08);
 }
 
-.keycap.is-dojjonku-mid .ear,
-.keycap.is-cat-mid .ear {
+.keycap.is-dojjonku-mid .ear {
   transform: scale(1.08) rotate(-13deg);
 }
 
-.keycap.is-dojjonku-mid .ear-right,
-.keycap.is-cat-mid .ear-right {
+.keycap.is-dojjonku-mid .ear-right {
   transform: scale(1.08) rotate(13deg);
 }
 
-.keycap.is-dojjonku-full,
-.keycap.is-cat-full {
+.keycap.is-dojjonku-full {
   --keycap-top: #fff5a8;
   --keycap-side: #ff9fc8;
   --keycap-rim: #db679a;
@@ -1460,8 +1391,7 @@ kbd {
     0 0 1.1rem rgba(255, 181, 212, 0.5);
 }
 
-.keycap.is-dojjonku-legend,
-.keycap.is-cat-artisan {
+.keycap.is-dojjonku-legend {
   --keycap-top: #fffbd1;
   --keycap-side: #ff9ed1;
   --keycap-rim: #bd5fff;

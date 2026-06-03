@@ -386,10 +386,6 @@ function renderLevel() {
 function updateKeycapEvolution() {
   keycapShells.forEach((keycapShell) => {
     keycapShell.classList.remove(
-      "is-cat-soft",
-      "is-cat-mid",
-      "is-cat-full",
-      "is-cat-artisan",
       "is-dojjonku-soft",
       "is-dojjonku-mid",
       "is-dojjonku-full",
