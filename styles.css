@@ -361,7 +361,7 @@ button {
 .switch-stem,
 .keycap {
   position: absolute;
-  transition: transform 90ms ease;
+  transition: transform 150ms cubic-bezier(0.2, 1.5, 0.35, 1), border-radius 150ms ease, box-shadow 150ms ease;
 }
 
 .switch-base {
@@ -1261,6 +1261,271 @@ kbd {
     transform: translateY(-3px);
     border-color: color-mix(in srgb, var(--switch-main) 42%, transparent);
     box-shadow: 0 12px 24px color-mix(in srgb, var(--switch-main) 22%, transparent);
+  }
+}
+
+.keycap {
+  --keycap-top: #fff0f6;
+  --keycap-side: #f7bed5;
+  --keycap-rim: #d982a7;
+  --keycap-accent: #6a3850;
+  width: 76%;
+  height: 62%;
+  border-radius: 42% 42% 34% 34% / 48% 48% 36% 36%;
+  background:
+    radial-gradient(circle at 28% 30%, rgba(255, 255, 255, 0.72), transparent 20%),
+    radial-gradient(circle at 72% 33%, rgba(255, 255, 255, 0.46), transparent 18%),
+    linear-gradient(180deg, var(--keycap-top) 0%, #ffe2ee 42%, var(--keycap-side) 100%);
+  box-shadow:
+    inset 0 0 0 0.18rem var(--keycap-rim),
+    inset 0 0.22rem 0 rgba(255, 255, 255, 0.86),
+    inset 0 -0.7rem 0 rgba(195, 88, 128, 0.16),
+    0 1rem 0 rgba(146, 74, 104, 0.42),
+    0 1.55rem 1.25rem rgba(0, 0, 0, 0.2);
+}
+
+.keycap::before {
+  inset: auto 20% 13%;
+  height: 16%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 25% 50%, rgba(255, 151, 186, 0.55), transparent 28%),
+    radial-gradient(circle at 75% 50%, rgba(255, 151, 186, 0.55), transparent 28%);
+  opacity: 0.85;
+}
+
+.keycap::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.42rem;
+  width: 38%;
+  height: 0.34rem;
+  border-radius: 999px;
+  background: rgba(138, 65, 94, 0.18);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ear {
+  top: -0.52rem;
+  width: 1.35rem;
+  height: 1.05rem;
+  border-radius: 999px 999px 65% 65%;
+  background:
+    radial-gradient(circle at 50% 38%, #fff7fb 0 28%, transparent 30%),
+    linear-gradient(180deg, #ffd5e6, #ec9fbd);
+  border: 0.14rem solid var(--keycap-rim);
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.ear-left {
+  left: 10%;
+  clip-path: none;
+  transform: rotate(-13deg);
+}
+
+.ear-right {
+  right: 10%;
+  clip-path: none;
+  transform: rotate(13deg);
+}
+
+.eye,
+.nose,
+.whiskers {
+  opacity: 1;
+}
+
+.eye {
+  top: 37%;
+  width: 0.42rem;
+  height: 0.52rem;
+  background: #553042;
+  box-shadow: inset 0 0.08rem 0 rgba(255, 255, 255, 0.48);
+  transform: scaleY(1);
+}
+
+.eye-left {
+  left: 29%;
+}
+
+.eye-right {
+  right: 29%;
+}
+
+.nose {
+  top: 50%;
+  width: 0.5rem;
+  height: 0.34rem;
+  background: #ff8fb6;
+  transform: translateX(-50%) scale(1);
+}
+
+.nose::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.26rem;
+  width: 0.72rem;
+  height: 0.36rem;
+  border-bottom: 0.12rem solid rgba(91, 48, 66, 0.5);
+  border-radius: 0 0 999px 999px;
+  transform: translateX(-50%);
+}
+
+.whiskers {
+  top: 49%;
+  width: 0.92rem;
+  height: 0.62rem;
+}
+
+.whiskers::before,
+.whiskers::after {
+  border-top: 0;
+  border-radius: 999px;
+  background: rgba(255, 135, 174, 0.5);
+  height: 0.16rem;
+  top: 0.18rem;
+}
+
+.whiskers::before {
+  transform: rotate(11deg);
+}
+
+.whiskers::after {
+  transform: translateY(0.26rem) rotate(-9deg);
+}
+
+.whiskers-left {
+  left: 12%;
+}
+
+.whiskers-right {
+  right: 12%;
+}
+
+.keycap-top {
+  margin-top: 0.2rem;
+  color: var(--keycap-accent);
+  font-size: clamp(0.92rem, 1.5vw, 1.22rem);
+  letter-spacing: 0.1em;
+  transform: translateY(-0.08rem);
+}
+
+.keycap-sub {
+  margin-top: 0.08rem;
+  color: rgba(106, 56, 80, 0.62);
+  letter-spacing: 0.12em;
+}
+
+.keycap.is-dojjonku-soft,
+.keycap.is-cat-soft {
+  --keycap-top: #fff4fb;
+  --keycap-side: #f5b8d3;
+  --keycap-rim: #d3749e;
+}
+
+.keycap.is-dojjonku-mid,
+.keycap.is-cat-mid {
+  --keycap-top: #fff0c9;
+  --keycap-side: #ffaed2;
+  --keycap-rim: #e176a6;
+  filter: saturate(1.08);
+}
+
+.keycap.is-dojjonku-mid .ear,
+.keycap.is-cat-mid .ear {
+  transform: scale(1.08) rotate(-13deg);
+}
+
+.keycap.is-dojjonku-mid .ear-right,
+.keycap.is-cat-mid .ear-right {
+  transform: scale(1.08) rotate(13deg);
+}
+
+.keycap.is-dojjonku-full,
+.keycap.is-cat-full {
+  --keycap-top: #fff5a8;
+  --keycap-side: #ff9fc8;
+  --keycap-rim: #db679a;
+  --keycap-accent: #62304a;
+  box-shadow:
+    inset 0 0 0 0.18rem var(--keycap-rim),
+    inset 0 0.22rem 0 rgba(255, 255, 255, 0.9),
+    inset 0 -0.85rem 0 rgba(202, 80, 132, 0.18),
+    0 1rem 0 rgba(151, 68, 111, 0.45),
+    0 1.55rem 1.25rem rgba(0, 0, 0, 0.2),
+    0 0 1.1rem rgba(255, 181, 212, 0.5);
+}
+
+.keycap.is-dojjonku-legend,
+.keycap.is-cat-artisan {
+  --keycap-top: #fffbd1;
+  --keycap-side: #ff9ed1;
+  --keycap-rim: #bd5fff;
+  --keycap-accent: #51316a;
+  background:
+    radial-gradient(circle at 28% 30%, rgba(255, 255, 255, 0.78), transparent 20%),
+    radial-gradient(circle at 72% 33%, rgba(255, 255, 255, 0.52), transparent 18%),
+    linear-gradient(135deg, #fffbd1 0%, #ffc2df 45%, #d8b3ff 100%);
+  box-shadow:
+    inset 0 0 0 0.18rem var(--keycap-rim),
+    inset 0 0.22rem 0 rgba(255, 255, 255, 0.9),
+    inset 0 -0.9rem 0 rgba(141, 82, 198, 0.18),
+    0 1rem 0 rgba(112, 64, 143, 0.45),
+    0 1.55rem 1.35rem rgba(0, 0, 0, 0.22),
+    0 0 1.4rem rgba(214, 166, 255, 0.62);
+}
+
+.key-stage.is-pressed .keycap {
+  transform: translateY(0.16rem) scaleX(1.1) scaleY(0.78);
+  border-radius: 48% 48% 30% 30% / 38% 38% 28% 28%;
+  box-shadow:
+    inset 0 0 0 0.18rem var(--keycap-rim),
+    inset 0 0.12rem 0 rgba(255, 255, 255, 0.74),
+    inset 0 -0.28rem 0 rgba(195, 88, 128, 0.14),
+    0 0.38rem 0 rgba(146, 74, 104, 0.35),
+    0 0.72rem 0.8rem rgba(0, 0, 0, 0.18);
+}
+
+.key-stage.is-pressed .keycap .ear-left {
+  transform: translateY(0.2rem) rotate(-24deg) scaleX(1.12) scaleY(0.72);
+}
+
+.key-stage.is-pressed .keycap .ear-right {
+  transform: translateY(0.2rem) rotate(24deg) scaleX(1.12) scaleY(0.72);
+}
+
+.key-stage.is-pressed .keycap .eye {
+  transform: scaleY(0.42);
+}
+
+.key-stage.is-pressed .keycap .nose {
+  transform: translateX(-50%) translateY(0.14rem) scaleX(1.15) scaleY(0.82);
+}
+
+.key-stage.is-level-up .keycap {
+  animation: dojjonku-level-bounce 760ms ease-out;
+}
+
+@keyframes dojjonku-level-bounce {
+  0%,
+  100% {
+    transform: translateY(-1rem) scale(1);
+  }
+
+  24% {
+    transform: translateY(-1.75rem) scaleX(0.92) scaleY(1.14) rotate(-2deg);
+  }
+
+  52% {
+    transform: translateY(-0.28rem) scaleX(1.16) scaleY(0.82) rotate(2deg);
+  }
+
+  76% {
+    transform: translateY(-1.18rem) scaleX(0.98) scaleY(1.04);
   }
 }
 

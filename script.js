@@ -233,7 +233,7 @@ function animatePress(targetButton = getPrimaryKeyButton()) {
     if (config.pressClass) {
       targetButton.classList.remove(config.pressClass);
     }
-  }, 90));
+  }, 150));
 }
 
 function burstParticles() {
@@ -381,33 +381,37 @@ function updateKeycapEvolution() {
       "is-cat-soft",
       "is-cat-mid",
       "is-cat-full",
-      "is-cat-artisan"
+      "is-cat-artisan",
+      "is-dojjonku-soft",
+      "is-dojjonku-mid",
+      "is-dojjonku-full",
+      "is-dojjonku-legend"
     );
   });
 
   if (score >= 1200) {
-    keycapShells.forEach((keycapShell) => keycapShell.classList.add("is-cat-artisan"));
+    keycapShells.forEach((keycapShell) => keycapShell.classList.add("is-dojjonku-legend"));
     keycapSubLabels.forEach((label) => {
-      label.textContent = "\uACE0\uC591\uC774 \uC544\uD2F0\uC794";
+      label.textContent = "\uB450\uCAC0\uCFE0 \uC804\uC124";
     });
   } else if (score >= 600) {
-    keycapShells.forEach((keycapShell) => keycapShell.classList.add("is-cat-full"));
+    keycapShells.forEach((keycapShell) => keycapShell.classList.add("is-dojjonku-full"));
     keycapSubLabels.forEach((label) => {
-      label.textContent = "\uACE0\uC591\uC774 \uCEE4\uC2A4\uD140";
+      label.textContent = "\uB450\uCAC0\uCFE0 \uCEE4\uC2A4\uD140";
     });
   } else if (score >= 250) {
-    keycapShells.forEach((keycapShell) => keycapShell.classList.add("is-cat-mid"));
+    keycapShells.forEach((keycapShell) => keycapShell.classList.add("is-dojjonku-mid"));
     keycapSubLabels.forEach((label) => {
-      label.textContent = "\uACE0\uC591\uC774 \uBAA8\uB4DC";
+      label.textContent = "\uB450\uCAC0\uCFE0 \uBAA8\uB4DC";
     });
   } else if (score >= 90) {
-    keycapShells.forEach((keycapShell) => keycapShell.classList.add("is-cat-soft"));
+    keycapShells.forEach((keycapShell) => keycapShell.classList.add("is-dojjonku-soft"));
     keycapSubLabels.forEach((label) => {
-      label.textContent = "\uACE0\uC591\uC774 \uAC01\uC778";
+      label.textContent = "\uB450\uCAC0\uCFE0 \uAC01\uC778";
     });
   } else {
     keycapSubLabels.forEach((label) => {
-      label.textContent = modeConfig[currentMode].sub;
+      label.textContent = "\uB450\uCAC0\uCFE0";
     });
   }
 }
